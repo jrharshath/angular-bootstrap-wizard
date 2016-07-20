@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../src/angular-bootstrap-wizard.css" />
+
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="../src/angular-bootstrap-wizard.js"></script>
+
+    <script src="demo.js"></script>
+  </head>
+
+  <body ng-app='wizard-demo' ng-controller='WizardDemoController as vm'>
+    <div class="container"></div>
+        <h1>Hello Angular Wizard!</h1>
+
+        <button class='btn btn-default' ng-click='vm.showWizard()'>Show Wizard</button>
+        
+        <script type='text/ng-template' id='wizard-form'>
+	        <abw-wizard abw-submit='modalVm.onSubmit()'>
+	          <abw-wizard-step title='Step 1'>
+	            <h3>Step 1</h3>
+	            <div class='form-group'>
+	                <label for='name'>Enter name</label>
+	                <input type='text' class='form-control' ng-model='modalVm.name' name='name' required/>
+	                <span style='color: red' ng-if='$parent.abwWizardStepForm.name.$error.required'>Name is required</span>
+	            </div>
+	            <span ng-show='wizardForm.name.$error.required'>Name is required</span>
+	          </abw-wizard-step>
+	          <abw-wizard-step title='Step 2'>
+	            <h3>Step 2</h3>
+	            <div class='form-group'>
+		            <label for='age'>Enter age</label>
+		            <input type='text' class='form-control' ng-model='modalVm.age' name='age' required/>
+		            <span style='color: red' ng-if='$parent.abwWizardStepForm.age.$error.required'>Age is required</span>
+	            </div>
+	          </abw-wizard-step>
+	          <abw-wizard-step title='Step 3'>
+	            <h3>Step 3</h3>
+	            <div class='form-group'>
+		            <label for='age'>Enter mom's name</label>
+		            <input type='text' class='form-control' ng-model='modalVm.momname' name='momname' required/>
+		            <span style='color: red' ng-if='$parent.abwWizardStepForm.momname.$error.required'>Mom's name is required</span>
+	            </div>
+	          </abw-wizard-step>
+	        </abw-wizard>
+        </script>
+    </div>
+  </body>
+</html>

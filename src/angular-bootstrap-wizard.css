@@ -1,0 +1,18 @@
+.abw-wizard-container { }
+
+.abw-wizard-container .abw-wizard-title { border-bottom: 1px solid #eee; }
+
+.abw-wizard-container .abw-wizard-steps { height: 400px; background-color: #eee; }
+
+.abw-wizard-container .abw-wizard-steps ul.nav-list { padding: 0; margin: 0 -15px; }
+.abw-wizard-container .abw-wizard-steps ul.nav-list li { padding: 5px 0 }
+.abw-wizard-container .abw-wizard-steps ul.nav-list li a.unactivated-step-link { color: #ccc; cursor: default;}
+.abw-wizard-container .abw-wizard-steps ul.nav-list li.active-step { background-color: #337ab7; }
+.abw-wizard-container .abw-wizard-steps ul.nav-list li.active-step a { color: #fff; }
+.abw-wizard-container .abw-wizard-steps ul.nav-list li.active-step a:hover,
+.abw-wizard-container .abw-wizard-steps ul.nav-list li.active-step a:focus { background-color: transparent; color: #fff; }
+.abw-wizard-container .abw-wizard-steps ul.nav-list i.abs-error-step { color: red; }
+
+.abw-wizard-container .abw-wizard-footer { height: 50px; line-height: 50px; }
+.abw-wizard-container .abw-wizard-footer .abw-wizard-progress { height: 50px; background-color: #eee; }
+.abw-wizard-container .abw-wizard-footer .abw-wizard-buttons { text-align: right; }

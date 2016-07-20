@@ -1,0 +1,29 @@
+<div class='abw-wizard-container container-fluid'>
+    <div class='row abw-wizard-title'><div class='col-xs-12'><h2>Wizard Title</h2></div></div>
+    <div class='row'>
+        <div class='abw-wizard-steps col-xs-4'>
+            <ul class='nav nav-list'>
+                <li ng-repeat='step in vm.steps' ng-class='{ "active-step": vm.currStepIndex == $index }'>
+                    <a href='#' ng-click='vm.stepLinkClicked($index, $event)' ng-class='{"unactivated-step-link" : !vm.stepIsActivated($index) }'>
+                        {{step.title}}
+                        <i ng-if='vm.stepHasError($index) && !vm.stepIsPristine($index)' class='glyphicon glyphicon-remove pull-right abs-error-step'></i>
+                        <i ng-if='!vm.stepHasError($index) || vm.stepIsPristine($index)' class='glyphicon glyphicon-chevron-right pull-right'></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class='abw-wizard-content-area col-xs-8'>
+            <div class='wizard-steps-area'>
+                <ng-transclude></ng-transclude>
+            </div>
+        </div>
+    </div>
+    <div class='row abw-wizard-footer'>
+        <div class='abw-wizard-progress col-xs-4'></div>
+        <div class='abw-wizard-buttons col-xs-8'>
+            <button type='button' ng-disabled='vm.isFirstStep()' class='btn btn-default' ng-click='vm.prev()'>Prev</button>
+            <button type='button' ng-disabled='vm.isLastStep()' class='btn btn-default' ng-click='vm.next()'>Next</button>
+            <button type='button' ng-show='vm.isLastStep()' ng-disabled='vm.noStepIsPristine() && vm.anyStepHasError()' class='btn btn-primary' ng-click='vm.submit()'>Submit</button>
+        </div>
+    </div>
+</div>
